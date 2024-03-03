@@ -7,16 +7,16 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Rentaspace',
+      title: 'Rent A Space',
       theme: ThemeData(
-       colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.transparent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Rentaspace'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'RENT A SPACE'),
     );
   }
 }
@@ -31,40 +31,36 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(widget.title),
+        centerTitle: true,
       ),
-      body: Center(
-         child: Column(
-           mainAxisAlignment: MainAxisAlignment.center,
+      body:   Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+           const Text(
+              'Rent A Space QR',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            IconButton(
+              iconSize: 80,
+              icon: const Icon(Icons.qr_code_scanner_rounded),
+              onPressed: () {
+                print("scan clicked");
+              },
+
+            ),
+            const Text(
+              'Tap to Scan',
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
