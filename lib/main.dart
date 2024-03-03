@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxuryrent/pages/bottom_nav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'RENT A SPACE'),
+      home: const BottomNav(),
     );
   }
 }
