@@ -12,8 +12,6 @@ dependencies:
     sdk: flutter
 
   panorama: ^0.4.1
-
-
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
