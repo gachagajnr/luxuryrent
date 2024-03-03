@@ -13,6 +13,8 @@ dependencies:
 
   panorama: ^0.4.1
   cupertino_icons: ^1.0.2
+  dio: ^5.4.1
+  flutter_bloc: ^8.1.4
 
 dev_dependencies:
   flutter_test:
