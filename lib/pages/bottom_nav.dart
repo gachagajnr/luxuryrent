@@ -3,8 +3,6 @@ import 'package:luxuryrent/pages/spaces.dart';
 import 'package:luxuryrent/pages/home.dart';
 import 'package:flutter/material.dart';
 
-
-
 class BottomNav extends StatefulWidget {
   const BottomNav({
     super.key,
@@ -18,21 +16,41 @@ class _BottomNav extends State<BottomNav> {
   int currentIndex = 1;
 
   final PageController controller = PageController();
+
   @override
   void initState() {
     super.initState();
-
   }
+
   @override
   Widget build(BuildContext context) {
-
     final pages = [
-      const SpacesScreen( ),
+      const SpacesScreen(),
       const HomeScreen(),
       const ProfileScreen(),
     ];
 
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/rentaspace.png',
+              fit: BoxFit.contain,
+              height: 32,
+            ),
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              child: const Text(
+                "Rent A Space",
+                style: TextStyle(color: Colors.black),
+              ),
+            )
+          ],
+        ),
+        centerTitle: true,
+      ),
       body: PageView(
         controller: controller,
         children: pages,
@@ -45,22 +63,18 @@ class _BottomNav extends State<BottomNav> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
-            icon: Icon(Icons.list_rounded),
-            label: 'Browse Spaces',
+            icon: Icon(Icons.search_rounded),
+            label: 'Discover Spaces',
           ),
           BottomNavigationBarItem(
               icon: Padding(
                 padding: const EdgeInsets.only(bottom: 2),
-                child: Image.asset(
-                  'assets/images/rentaspace.png',
-
-                  // width: 5.w,
-                ),
+                child: Image.asset('assets/images/rentaspace.png',
+                    width: 35, height: 35),
               ),
-              label: 'Rent A Space'),
-
+              label: 'Scan'),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.saved_search_rounded),
+            icon: Icon(Icons.bookmark_added_rounded),
             label: 'Profile',
           )
         ],
@@ -75,7 +89,7 @@ class _BottomNav extends State<BottomNav> {
             currentIndex = index;
           });
         },
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.shifting,
         backgroundColor: Colors.white,
       ),
     );
